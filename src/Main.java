@@ -33,6 +33,7 @@ public class Main {
             double valor_hora = 0;
             double cantidad_hora = 0;
             double bonificacion_empleado = 0;
+            double valor_salario_minimo = 0;
             int auxilio_transporte = 200000;
 
         /**aqui estamos preguntando y capturando variables**/
@@ -41,9 +42,33 @@ public class Main {
         System.out.println("ingrese su contraseña: ");
         contrasena_empleado = leer.nextLine();
 
-        /**aqui empezamos con los condicionales**/
+        /**aqui empezamos con los condicionales y captura de variables**/
         if (usuario_empleado.equals("usuario") && contrasena_empleado.equals("makankiuri")) {
             System.out.println("ha ingresado de forma correcta");
+            System.out.println("ingrese el nombre del empleado: ");
+            nombre_empleado = leer.nextLine();
+            System.out.println("ingrese su docuemnto de identidad:");
+            docuemnto_identidad = leer.nextLine();
+            System.out.println("ingrese el dia de descanso solo dia de semana: ");
+            dia_descanso = leer.nextLine();
+            System.out.printf("ingrese el valor de la hora: ");
+            valor_hora = leer.nextDouble();
+            System.out.printf("ingrese la cantidad de horas laboradas: ");
+            cantidad_hora = leer.nextDouble();
+
+            /** aqui vamos a hacer las operacionesz matematicas**/
+            salario_bruto=valor_hora * cantidad_hora;
+            System.out.println("ingrese el valor del salario minimo para este año: ");
+            valor_salario_minimo = leer.nextDouble();
+            if (salario_bruto > (valor_salario_minimo*2)){
+                bonificacion_empleado = 0;
+                auxilio_transporte = 200000;
+            }else   {
+    bonificacion_empleado = salario_bruto*0.1;
+    auxilio_transporte = 200000;
+            }
+            salario_neto = salario_bruto + bonificacion_empleado + auxilio_transporte;
+            System.out.println("el salario neto es: " + salario_neto);
         }else {
                System.out.println("error de credenciales");
             }
